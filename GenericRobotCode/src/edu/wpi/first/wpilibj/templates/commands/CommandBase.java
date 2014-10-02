@@ -24,12 +24,13 @@ public abstract class CommandBase extends Command {
     // Create a single static instance of all of your subsystems
     public static Chassis chassis = new Chassis(RobotMap.FRONT_LEFT_MOTOR, RobotMap.FRONT_RIGHT_MOTOR, RobotMap.REAR_LEFT_MOTOR, RobotMap.REAR_RIGHT_MOTOR);
     public static Network network = new Network();
-    public static Picker picker = new Picker(RobotMap.PICKER_SPIKE, RobotMap.SOLENOID_FORWARD, RobotMap.SOLENOID_BACK, RobotMap.SOLENOID2_FORWARD, RobotMap.SOLENOID2_BACK, RobotMap.COMPRESSOR_SENSOR, RobotMap.COMPRESSOR);
-    public static Shooter shooter = new Shooter(RobotMap.SHOOTER_SPIKE, RobotMap.SERVO_PORT);
+    //public static Picker picker = new Picker(RobotMap.PICKER_SPIKE, RobotMap.SOLENOID_FORWARD, RobotMap.SOLENOID_BACK, RobotMap.SOLENOID2_FORWARD, RobotMap.SOLENOID2_BACK, RobotMap.COMPRESSOR_SENSOR, RobotMap.COMPRESSOR);
+    //public static Shooter shooter = new Shooter(RobotMap.SHOOTER_SPIKE, RobotMap.SERVO_PORT);
     public static Camera camera = new Camera();
-    public static SubsystemOne subsystem1 = new SubsystemOne(-1, -1, -1, -1, -1, -1);
-    public static SubsystemTwo subsystem2 = new SubsystemTwo(-1, -1, -1, -1, -1, -1);
-    public static Sensor sensor = new Sensor(-1, -1, -1);
+    public static SubsystemOne subsystem1 = new SubsystemOne(RobotMap.SUBSYSTEM1_JAG1, RobotMap.SUBSYSTEM1_JAG2, RobotMap.SUBSYSTEM1_RELAY1, RobotMap.SUBSYSTEM1_RELAY2, RobotMap.SUBSYSTEM1_SERVO1, RobotMap.SUBSYSTEM1_SERVO2);
+    public static SubsystemTwo subsystem2 = new SubsystemTwo(RobotMap.SUBSYSTEM2_JAG1, RobotMap.SUBSYSTEM2_JAG2, RobotMap.SUBSYSTEM2_RELAY1, RobotMap.SUBSYSTEM2_RELAY2, RobotMap.SUBSYSTEM2_SERVO1, RobotMap.SUBSYSTEM2_SERVO2);
+    
+    public static Sensor sensor = new Sensor(RobotMap.ACCELEROMETER_PORT, RobotMap.GYRO_PORT, RobotMap.SONAR_PORT);
     
     public static void init() {
         // This MUST be here. If the OI creates Commands (which it very likely
