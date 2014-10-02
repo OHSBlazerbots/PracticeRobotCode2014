@@ -7,6 +7,7 @@ import edu.wpi.first.wpilibj.templates.subsystems.Camera;
 import edu.wpi.first.wpilibj.templates.subsystems.Chassis;
 import edu.wpi.first.wpilibj.templates.subsystems.Network;
 import edu.wpi.first.wpilibj.templates.subsystems.Picker;
+import edu.wpi.first.wpilibj.templates.subsystems.Sensor;
 import edu.wpi.first.wpilibj.templates.subsystems.Shooter;
 import edu.wpi.first.wpilibj.templates.subsystems.SubsystemOne;
 import edu.wpi.first.wpilibj.templates.subsystems.SubsystemTwo;
@@ -28,6 +29,7 @@ public abstract class CommandBase extends Command {
     public static Camera camera = new Camera();
     public static SubsystemOne subsystem1 = new SubsystemOne(-1, -1, -1, -1, -1, -1);
     public static SubsystemTwo subsystem2 = new SubsystemTwo(-1, -1, -1, -1, -1, -1);
+    public static Sensor sensor = new Sensor(-1, -1, -1);
     
     public static void init() {
         // This MUST be here. If the OI creates Commands (which it very likely

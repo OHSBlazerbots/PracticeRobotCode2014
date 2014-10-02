@@ -2,36 +2,35 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package edu.wpi.first.wpilibj.templates.commands.GenericControlsSubsystem2;
+package edu.wpi.first.wpilibj.templates.commands;
 
-import edu.wpi.first.wpilibj.templates.commands.GenericControlsSubsystem1.*;
-import edu.wpi.first.wpilibj.templates.commands.CommandBase;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
  * @author sgoldman
  */
-public class SetAngleSubsystem2Servo1 extends CommandBase {
+public class PutSensorData extends CommandBase {
 
-    private double angle;
-   
-    public SetAngleSubsystem2Servo1(double angle) {
-        requires(subsystem1);
-        this.angle = angle;
+    public PutSensorData() {
+        requires(sensor);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        subsystem1.setServo2Angle(angle);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+        SmartDashboard.putNumber("Gyro", sensor.getGyroAngle());
+        SmartDashboard.putNumber("AccelX", sensor.getAccelerationX());
+        SmartDashboard.putNumber("AccelY", sensor.getAccelerationY());
+        SmartDashboard.putNumber("Sonar", sensor.getSonarDistance());
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return true;
+        return false;
     }
 
     // Called once after isFinished returns true
