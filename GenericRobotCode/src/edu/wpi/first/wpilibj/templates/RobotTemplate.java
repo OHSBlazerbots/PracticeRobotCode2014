@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.templates.commands.Autonomous;
 import edu.wpi.first.wpilibj.templates.commands.CommandBase;
+import edu.wpi.first.wpilibj.templates.commands.UpdatePortsAndValues;
 //import edu.wpi.first.wpilibj.templates.commands.ExampleCommand;
 
 /**
@@ -76,5 +77,14 @@ public class RobotTemplate extends IterativeRobot {
      */
     public void testPeriodic() {
         LiveWindow.run();
+    }
+    
+    public void disabledInit() {
+        Scheduler.getInstance().removeAll();
+        Scheduler.getInstance().add(new UpdatePortsAndValues());
+    }
+    
+    public void diabledPeriodic() {
+        Scheduler.getInstance().run();
     }
 }

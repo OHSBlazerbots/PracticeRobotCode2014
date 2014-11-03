@@ -11,11 +11,14 @@ import edu.wpi.first.wpilibj.templates.subsystems.Sensor;
 import edu.wpi.first.wpilibj.templates.subsystems.Shooter;
 import edu.wpi.first.wpilibj.templates.subsystems.SubsystemOne;
 import edu.wpi.first.wpilibj.templates.subsystems.SubsystemTwo;
+import edu.wpi.first.wpilibj.templates.subsystems.ValueGetter;
 
 /**
  * The base for all commands. All atomic commands should subclass CommandBase.
  * CommandBase stores creates and stores each control system. To access a
- * subsystem elsewhere in your code in your code use CommandBase.exampleSubsystem
+ * subsystem elsewhere in your code in your code use
+ * CommandBase.exampleSubsystem
+ *
  * @author Author
  */
 public abstract class CommandBase extends Command {
@@ -29,9 +32,9 @@ public abstract class CommandBase extends Command {
     public static Camera camera = new Camera();
     public static SubsystemOne subsystem1 = new SubsystemOne(RobotMap.SUBSYSTEM1_JAG1, RobotMap.SUBSYSTEM1_JAG2, RobotMap.SUBSYSTEM1_RELAY1, RobotMap.SUBSYSTEM1_RELAY2, RobotMap.SUBSYSTEM1_SERVO1, RobotMap.SUBSYSTEM1_SERVO2);
     public static SubsystemTwo subsystem2 = new SubsystemTwo(RobotMap.SUBSYSTEM2_JAG1, RobotMap.SUBSYSTEM2_JAG2, RobotMap.SUBSYSTEM2_RELAY1, RobotMap.SUBSYSTEM2_RELAY2, RobotMap.SUBSYSTEM2_SERVO1, RobotMap.SUBSYSTEM2_SERVO2);
-    
+    public static ValueGetter valueGetter = new ValueGetter();
     public static Sensor sensor = new Sensor(RobotMap.ACCELEROMETER_PORT, RobotMap.GYRO_PORT, RobotMap.SONAR_PORT);
-    
+
     public static void init() {
         // This MUST be here. If the OI creates Commands (which it very likely
         // will), constructing it during the construction of CommandBase (from
@@ -48,5 +51,16 @@ public abstract class CommandBase extends Command {
 
     public CommandBase() {
         super();
+    }
+
+    public static void updateSubsystems() {
+
+        chassis = new Chassis(RobotMap.FRONT_LEFT_MOTOR, RobotMap.FRONT_RIGHT_MOTOR, RobotMap.REAR_LEFT_MOTOR, RobotMap.REAR_RIGHT_MOTOR);
+        network = new Network();
+        camera = new Camera();
+        subsystem1 = new SubsystemOne(RobotMap.SUBSYSTEM1_JAG1, RobotMap.SUBSYSTEM1_JAG2, RobotMap.SUBSYSTEM1_RELAY1, RobotMap.SUBSYSTEM1_RELAY2, RobotMap.SUBSYSTEM1_SERVO1, RobotMap.SUBSYSTEM1_SERVO2);
+        subsystem2 = new SubsystemTwo(RobotMap.SUBSYSTEM2_JAG1, RobotMap.SUBSYSTEM2_JAG2, RobotMap.SUBSYSTEM2_RELAY1, RobotMap.SUBSYSTEM2_RELAY2, RobotMap.SUBSYSTEM2_SERVO1, RobotMap.SUBSYSTEM2_SERVO2);
+        valueGetter = new ValueGetter();
+        sensor = new Sensor(RobotMap.ACCELEROMETER_PORT, RobotMap.GYRO_PORT, RobotMap.SONAR_PORT);
     }
 }

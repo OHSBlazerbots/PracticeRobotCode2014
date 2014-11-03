@@ -9,10 +9,10 @@ package edu.wpi.first.wpilibj.templates;
 public class RobotMap {
 
     //PWM
-    public static final int FRONT_LEFT_MOTOR = -1;
-    public static final int REAR_LEFT_MOTOR = -1;
-    public static final int FRONT_RIGHT_MOTOR = -1;
-    public static final int REAR_RIGHT_MOTOR = -1;
+    public static int FRONT_LEFT_MOTOR = -1;
+    public static int REAR_LEFT_MOTOR = -1;
+    public static int FRONT_RIGHT_MOTOR = -1;
+    public static int REAR_RIGHT_MOTOR = -1;
     public static final int SUBSYSTEM1_JAG1 = -1;
     public static final int SUBSYSTEM1_JAG2 = -1;
     public static final int SUBSYSTEM2_JAG1 = -1;
