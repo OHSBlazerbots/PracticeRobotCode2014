@@ -5,6 +5,7 @@
 package edu.wpi.first.wpilibj.templates.commands;
 
 import edu.wpi.first.wpilibj.templates.RobotMap;
+import static edu.wpi.first.wpilibj.templates.commands.CommandBase.valueGetter;
 import edu.wpi.first.wpilibj.templates.subsystems.Chassis;
 
 /**
@@ -27,15 +28,25 @@ public class UpdatePortsAndValues extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        System.out.println("ValueGetter Execute");
         RobotMap.REAR_RIGHT_MOTOR = valueGetter.getInt("DM-R-2-PORT");
-        System.out.print(valueGetter.getInt("DM-R-2-PORT") + ":");
         RobotMap.FRONT_RIGHT_MOTOR = valueGetter.getInt("DM-R-1-PORT");
-        System.out.print(valueGetter.getInt("DM-R-1-PORT") + ":");
         RobotMap.REAR_LEFT_MOTOR = valueGetter.getInt("DM-L-2-PORT");
-        System.out.print(valueGetter.getInt("DM-L-2-PORT") + ":");
         RobotMap.FRONT_LEFT_MOTOR = valueGetter.getInt("DM-L-1-PORT");
-        System.out.println(valueGetter.getInt("DM-L-1-PORT"));
+        RobotMap.SUBSYSTEM1_JAG1 = valueGetter.getInt("S1M-1-PORT");
+        RobotMap.SUBSYSTEM1_JAG2 = valueGetter.getInt("S1M-2-PORT");
+        RobotMap.SUBSYSTEM2_JAG1 = valueGetter.getInt("S2M-1-PORT");
+        RobotMap.SUBSYSTEM2_JAG2 = valueGetter.getInt("S2M-2-PORT");
+        RobotMap.SUBSYSTEM1_RELAY1 = valueGetter.getInt("S1R-1-PORT");
+        RobotMap.SUBSYSTEM1_RELAY2 = valueGetter.getInt("S1R-2-PORT");
+        RobotMap.SUBSYSTEM2_RELAY1 = valueGetter.getInt("S2R-1-PORT");
+        RobotMap.SUBSYSTEM2_RELAY2 = valueGetter.getInt("S2R-2-PORT");
+        RobotMap.SUBSYSTEM1_SERVO1 = valueGetter.getInt("S1SE-1-PORT");
+        RobotMap.SUBSYSTEM1_SERVO2 = valueGetter.getInt("S1SE-2-PORT");
+        RobotMap.SUBSYSTEM2_SERVO1 = valueGetter.getInt("S2SE-1-PORT");
+        RobotMap.SUBSYSTEM2_SERVO2 = valueGetter.getInt("S2SE-2-PORT");
+        RobotMap.GYRO_PORT = valueGetter.getInt("Gyro-1-Port");
+        RobotMap.SONAR_PORT = valueGetter.getInt("Son-1-Port");
+        RobotMap.ACCELEROMETER_PORT = valueGetter.getInt("Acc-1-Port");
         CommandBase.updateSubsystems();
     }
 
