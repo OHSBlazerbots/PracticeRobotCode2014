@@ -5,7 +5,6 @@
 package edu.wpi.first.wpilibj.templates.commands;
 
 import edu.wpi.first.wpilibj.templates.RobotMap;
-import static edu.wpi.first.wpilibj.templates.commands.CommandBase.valueGetter;
 import edu.wpi.first.wpilibj.templates.subsystems.Chassis;
 
 /**
