@@ -12,9 +12,9 @@ import edu.wpi.first.wpilibj.templates.commands.CommandBase;
  * @author sgoldman
  */
 public class SetAngleSubsystem2Servo1 extends CommandBase {
-    
+
     private double angle;
-    
+   
     public SetAngleSubsystem2Servo1(double angle) {
         requires(subsystem1);
         this.angle = angle;

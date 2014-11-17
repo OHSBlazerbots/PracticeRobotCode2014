@@ -1,40 +1,36 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
+ * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
 package edu.wpi.first.wpilibj.templates.commands;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 /**
- * Change the picker's position.
- * @author blazerbots
+ *
+ * @author sgoldman
  */
-public class TogglePickerUpDown extends CommandBase {
- 
-    public TogglePickerUpDown() {
-        requires(picker);
+public class PutSensorData extends CommandBase {
+
+    public PutSensorData() {
+        requires(sensor);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        //If picker is up, put it down, else pull it up
-        if(picker.getExtendedState())
-        {
-            picker.pickerUp();
-        }
-        else{
-            picker.pickerDown();
-        }
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+        SmartDashboard.putNumber("Gyro", sensor.getGyroAngle());
+        SmartDashboard.putNumber("AccelX", sensor.getAccelerationX());
+        SmartDashboard.putNumber("AccelY", sensor.getAccelerationY());
+        SmartDashboard.putNumber("Sonar", sensor.getSonarDistance());
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        //Do once
-        return true;
+        return false;
     }
 
     // Called once after isFinished returns true

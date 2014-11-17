@@ -7,6 +7,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
  * Deals with drive train and sensor assets.
+ *
  * @author sgoldman
  */
 public class Chassis extends Subsystem {
@@ -25,11 +26,15 @@ public class Chassis extends Subsystem {
      */
     public Chassis(int frontLeftMotor, int frontRightMotor, int rearLeftMotor, int rearRightMotor) {
         //Create new robot drive class with pin values for the two motors
-        drive = new RobotDrive(frontLeftMotor, rearLeftMotor, frontRightMotor, rearRightMotor);
-        //Disables safety so we can drive
-        drive.setSafetyEnabled(false);
+        if (frontLeftMotor != -1 && frontRightMotor != -1 && rearLeftMotor != -1 && rearRightMotor != -1) {
+            drive = new RobotDrive(frontLeftMotor, rearLeftMotor, frontRightMotor, rearRightMotor);
+            //Disables safety so we can drive
+            drive.setSafetyEnabled(false);
+        } else {
+            System.out.println("FAILURE: Chassis not created due to port value as -1.");
+        }
     }
-    
+
     /**
      * Create an instance of the chassis class with the appropriate motors.
      * motors
@@ -39,17 +44,21 @@ public class Chassis extends Subsystem {
      */
     public Chassis(int leftMotor, int rightMotor) {
         //Create new robot drive class with pin values for the two motors
-        drive = new RobotDrive(leftMotor, rightMotor);
-        //Disables safety so we can drive
-        drive.setSafetyEnabled(false);
+        if (leftMotor != -1 && rightMotor != -1) {
+            drive = new RobotDrive(leftMotor, rightMotor);
+            //Disables safety so we can drive
+            drive.setSafetyEnabled(false);
+        } else {
+            System.out.println("FAILURE: Chassis not created due to port value as -1.");
+        }
     }
-    
+
     /**
      * Starts drive with joystick as the default command l
      */
     protected void initDefaultCommand() {
         //Starts driving the robot with this non terminating command
-        setDefaultCommand(new DriveWithJoystick());
+        setDefaultCommand(new DriveWithJoystick(this));
     }
 
     /**
@@ -62,6 +71,8 @@ public class Chassis extends Subsystem {
         double turn = joystick.getX();
         //Drive is the y
         double move = joystick.getY();
-        drive.arcadeDrive(move, turn);
+        if (drive != null) {
+            drive.arcadeDrive(move, turn);
+        }
     }
 }
