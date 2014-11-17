@@ -62,7 +62,7 @@ public class RBDrive implements MotorSafety, IUtility {
     protected SpeedController m_rearLeftMotor;
     protected SpeedController m_rearRightMotor;
     protected boolean m_allocatedSpeedControllers;
-
+    
     /**
      * Constructor for RobotDrive with 2 motors specified with channel numbers.
      * Set up parameters for a two wheel drive system where the left and right

@@ -54,7 +54,8 @@ public abstract class CommandBase extends Command {
     }
 
     public static void updateSubsystems() {
-
+        chassis = null;
+        if(Chassis.drive != null) Chassis.drive.free();
         chassis = new Chassis(RobotMap.FRONT_LEFT_MOTOR, RobotMap.FRONT_RIGHT_MOTOR, RobotMap.REAR_LEFT_MOTOR, RobotMap.REAR_RIGHT_MOTOR);
         network = new Network();
         camera = new Camera();

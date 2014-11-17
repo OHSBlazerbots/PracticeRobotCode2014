@@ -58,7 +58,7 @@ public class Chassis extends Subsystem {
      */
     protected void initDefaultCommand() {
         //Starts driving the robot with this non terminating command
-        setDefaultCommand(new DriveWithJoystick());
+        setDefaultCommand(new DriveWithJoystick(this));
     }
 
     /**

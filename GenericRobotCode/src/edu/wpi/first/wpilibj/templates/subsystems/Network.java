@@ -22,7 +22,7 @@ public class Network extends Subsystem{
      * Initializes private reference to SmartDashboard
      */
     public Network() {
-        server = NetworkTable.getTable("SmartDashboard");
+        //server = NetworkTable.getTable("SmartDashboard");
     }
     
     /**
