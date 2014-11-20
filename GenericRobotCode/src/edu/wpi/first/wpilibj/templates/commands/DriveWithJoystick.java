@@ -29,7 +29,7 @@ public class DriveWithJoystick extends CommandBase {
     protected void execute() {
         //Turn with joystick
         try{
-        chassis.driveWithJoyStick(oi.getJoystick());
+            chassis.driveWithJoyStick(oi.getJoystick());
         } catch(Exception e){
             finished = true;
         }

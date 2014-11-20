@@ -24,4 +24,8 @@ public class OI {
     public Joystick getJoystick() {
         return joystick; //Driver
     }
+    
+    public Joystick getCoDriverJoystick(){
+        return joystick2;
+    }
 }

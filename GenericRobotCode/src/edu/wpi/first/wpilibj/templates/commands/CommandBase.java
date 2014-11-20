@@ -29,7 +29,7 @@ public abstract class CommandBase extends Command {
     public static Network network = new Network();
     //public static Picker picker = new Picker(RobotMap.PICKER_SPIKE, RobotMap.SOLENOID_FORWARD, RobotMap.SOLENOID_BACK, RobotMap.SOLENOID2_FORWARD, RobotMap.SOLENOID2_BACK, RobotMap.COMPRESSOR_SENSOR, RobotMap.COMPRESSOR);
     //public static Shooter shooter = new Shooter(RobotMap.SHOOTER_SPIKE, RobotMap.SERVO_PORT);
-    public static Camera camera = new Camera();
+    public static Camera camera = new Camera(RobotMap.CAM_PAN, RobotMap.CAM_TILT);
     public static SubsystemOne subsystem1 = new SubsystemOne(RobotMap.SUBSYSTEM1_JAG1, RobotMap.SUBSYSTEM1_JAG2, RobotMap.SUBSYSTEM1_RELAY1, RobotMap.SUBSYSTEM1_RELAY2, RobotMap.SUBSYSTEM1_SERVO1, RobotMap.SUBSYSTEM1_SERVO2);
     public static SubsystemTwo subsystem2 = new SubsystemTwo(RobotMap.SUBSYSTEM2_JAG1, RobotMap.SUBSYSTEM2_JAG2, RobotMap.SUBSYSTEM2_RELAY1, RobotMap.SUBSYSTEM2_RELAY2, RobotMap.SUBSYSTEM2_SERVO1, RobotMap.SUBSYSTEM2_SERVO2);
     public static ValueGetter valueGetter = new ValueGetter();
@@ -58,7 +58,7 @@ public abstract class CommandBase extends Command {
         if(Chassis.drive != null) Chassis.drive.free();
         chassis = new Chassis(RobotMap.FRONT_LEFT_MOTOR, RobotMap.FRONT_RIGHT_MOTOR, RobotMap.REAR_LEFT_MOTOR, RobotMap.REAR_RIGHT_MOTOR);
         network = new Network();
-        camera = new Camera();
+        camera = new Camera(RobotMap.CAM_PAN, RobotMap.CAM_TILT);
         subsystem1 = new SubsystemOne(RobotMap.SUBSYSTEM1_JAG1, RobotMap.SUBSYSTEM1_JAG2, RobotMap.SUBSYSTEM1_RELAY1, RobotMap.SUBSYSTEM1_RELAY2, RobotMap.SUBSYSTEM1_SERVO1, RobotMap.SUBSYSTEM1_SERVO2);
         subsystem2 = new SubsystemTwo(RobotMap.SUBSYSTEM2_JAG1, RobotMap.SUBSYSTEM2_JAG2, RobotMap.SUBSYSTEM2_RELAY1, RobotMap.SUBSYSTEM2_RELAY2, RobotMap.SUBSYSTEM2_SERVO1, RobotMap.SUBSYSTEM2_SERVO2);
         valueGetter = new ValueGetter();

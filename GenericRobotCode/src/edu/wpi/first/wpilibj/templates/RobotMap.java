@@ -21,6 +21,8 @@ public class RobotMap {
     public static final int SUBSYSTEM1_SERVO2 = -1;
     public static final int SUBSYSTEM2_SERVO1 = -1;
     public static final int SUBSYSTEM2_SERVO2 = -1;
+    public static final int CAM_PAN = 9;
+    public static final int CAM_TILT = 10;
     
     // Joysticks
     public static final int JOYSTICK_PORT = 1;
