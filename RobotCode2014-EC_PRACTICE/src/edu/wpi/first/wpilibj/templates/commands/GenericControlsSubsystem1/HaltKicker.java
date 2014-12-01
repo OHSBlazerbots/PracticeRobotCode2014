@@ -10,18 +10,15 @@ import edu.wpi.first.wpilibj.templates.commands.CommandBase;
  *
  * @author sgoldman
  */
-public class RunSubsystem1Motor1 extends CommandBase {
+public class HaltKicker extends CommandBase {
     
-    private double speed;
-    
-    public RunSubsystem1Motor1(double speed) {
-        requires(kicker);
-        this.speed = speed;
+    public HaltKicker() {
+       requires(kicker);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        kicker.setJag1Speed(speed);
+        kicker.stopJag1();
     }
 
     // Called repeatedly when this Command is scheduled to run
