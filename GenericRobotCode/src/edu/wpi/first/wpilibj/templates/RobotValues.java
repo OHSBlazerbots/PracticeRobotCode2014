@@ -18,4 +18,6 @@ public class RobotValues {
     public static final int WAIT_TIME_AFTER_SHOT = 3;
     public static final int WAIT_TIME_AFTER_LATCH = 2;
     
+    public static double PAN_CONSTANT = 3;
+    public static double TILT_CONSTANT = 3;
 }

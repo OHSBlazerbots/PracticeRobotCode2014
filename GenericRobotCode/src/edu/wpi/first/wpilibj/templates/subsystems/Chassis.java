@@ -31,7 +31,7 @@ public class Chassis extends Subsystem {
             //Disables safety so we can drive
             drive.setSafetyEnabled(false);
         } else {
-            System.out.println("FAILURE: Chassis not created due to port value as -1.");
+            //System.out.println("FAILURE: Chassis not created due to port value as -1.");
         }
     }
 
@@ -49,7 +49,7 @@ public class Chassis extends Subsystem {
             //Disables safety so we can drive
             drive.setSafetyEnabled(false);
         } else {
-            System.out.println("FAILURE: Chassis not created due to port value as -1.");
+            //System.out.println("FAILURE: Chassis not created due to port value as -1.");
         }
     }
 

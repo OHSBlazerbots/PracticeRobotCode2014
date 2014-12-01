@@ -17,8 +17,8 @@ public class ValueGetter extends Subsystem {
     private NetworkTable table;
 
     public ValueGetter() {
-        table = NetworkTable.getTable("NetworkTables");
-        System.out.println("Table has been created: " + table);
+        table = NetworkTable.getTable("NetworkTables/NetworkTables");
+        //System.out.println("Table has been created: " + table);
         table.putBoolean("hi", true);
     }
 
@@ -29,13 +29,13 @@ public class ValueGetter extends Subsystem {
 
     public int getInt(String var) {
         if (table == null) {
-            System.out.println("Table is null. Oops!");
+            //System.out.println("Table is null. Oops!");
         }
         if (var == null) {
             return -1;
         }
         try {
-            System.out.println(var + ":" + table.getNumber(var));
+            //System.out.println(var + ":" + table.getNumber(var));
             return (int) table.getNumber(var);
         } catch(Exception e){
             table.putNumber(var, -1);

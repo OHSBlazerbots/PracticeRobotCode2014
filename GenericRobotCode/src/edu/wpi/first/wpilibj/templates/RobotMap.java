@@ -25,8 +25,8 @@ public class RobotMap {
     public static final int CAM_TILT = 10;
     
     // Joysticks
-    public static final int JOYSTICK_PORT = 1;
-    public static final int JOYSTICK2_PORT = 2;
+    public static final int JOYSTICK_PORT = 2;
+    public static final int JOYSTICK2_PORT = 1;
     
     // Analog
     public static int ACCELEROMETER_PORT = -1;

@@ -9,9 +9,9 @@ package edu.wpi.first.wpilibj.templates.commands;
  * @author sgoldman
  */
 public class DriveCamWithJoystick extends CommandBase {
-    
+
     private boolean finished = false;
-    
+
     public DriveCamWithJoystick() {
         requires(camera);
     }
@@ -22,11 +22,8 @@ public class DriveCamWithJoystick extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        try{
-            camera.driveWithJoyStick(oi.getCoDriverJoystick());
-        } catch(Exception e){
-            finished = true;
-        }
+        //System.out.println("DCWJ Execute");
+        camera.driveWithJoyStick(oi.getCoDriverJoystick());
     }
 
     // Make this return true when this Command no longer needs to run execute()

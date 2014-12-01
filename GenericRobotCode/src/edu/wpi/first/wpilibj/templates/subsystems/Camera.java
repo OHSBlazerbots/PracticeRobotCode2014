@@ -11,6 +11,8 @@ import edu.wpi.first.wpilibj.camera.AxisCamera;
 import edu.wpi.first.wpilibj.camera.AxisCameraException;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.image.NIVisionException;
+import edu.wpi.first.wpilibj.templates.RobotValues;
+import edu.wpi.first.wpilibj.templates.commands.DriveCamWithJoystick;
 
 /**
  *
@@ -29,12 +31,14 @@ public class Camera extends Subsystem {
     {
         tilt = new Servo(tilt_port);
         pan = new Servo(pan_port);
+        tilt.setAngle(90);
+        pan.setAngle(90);
         cam = AxisCamera.getInstance("10.38.7.11");
     }
 
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
-        //setDefaultCommand(new MySpecialCommand());
+        setDefaultCommand(new DriveCamWithJoystick());
     }
     
     public void snapShot()
@@ -49,8 +53,10 @@ public class Camera extends Subsystem {
     }
 
     public void driveWithJoyStick(Joystick joy) {
-        double x = joy.getX();
-        double y = joy.getY();
+        double x = RobotValues.PAN_CONSTANT * joy.getX();
+        double y = RobotValues.TILT_CONSTANT * joy.getY();
+        //System.out.println(RobotValues.PAN_CONSTANT);
+        //System.out.println("DWJ: (" + x + "," + y + ")");
         pan.setAngle(pan.getAngle() + x);
         tilt.setAngle(tilt.getAngle() + y);
     }

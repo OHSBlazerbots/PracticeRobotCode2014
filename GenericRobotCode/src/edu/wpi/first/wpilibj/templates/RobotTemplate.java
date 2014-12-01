@@ -84,8 +84,8 @@ public class RobotTemplate extends IterativeRobot {
     }
 
     public void disabledInit() {
-        System.out.println("dP Go");
-        upv.go();
+        //System.out.println("dP Go");
+        //upv.go();
     }
 
     public void diabledPeriodic() {

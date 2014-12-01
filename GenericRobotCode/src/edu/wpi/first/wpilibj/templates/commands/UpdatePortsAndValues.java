@@ -5,6 +5,7 @@
 package edu.wpi.first.wpilibj.templates.commands;
 
 import edu.wpi.first.wpilibj.templates.RobotMap;
+import edu.wpi.first.wpilibj.templates.RobotValues;
 import edu.wpi.first.wpilibj.templates.subsystems.Chassis;
 
 /**
@@ -46,6 +47,9 @@ public class UpdatePortsAndValues extends CommandBase {
         RobotMap.GYRO_PORT = valueGetter.getInt("Gyro-1-Port");
         RobotMap.SONAR_PORT = valueGetter.getInt("Son-1-Port");
         RobotMap.ACCELEROMETER_PORT = valueGetter.getInt("Acc-1-Port");
+        RobotValues.PAN_CONSTANT = valueGetter.getInt("Pan-Con");
+        RobotValues.TILT_CONSTANT = valueGetter.getInt("Tilt-Con");
+        System.out.println("Test: " + valueGetter.getInt("test"));
         CommandBase.updateSubsystems();
     }
 
