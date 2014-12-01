@@ -10,7 +10,6 @@ import edu.wpi.first.wpilibj.templates.subsystems.Picker;
 import edu.wpi.first.wpilibj.templates.subsystems.Sensor;
 import edu.wpi.first.wpilibj.templates.subsystems.Shooter;
 import edu.wpi.first.wpilibj.templates.subsystems.Kicker;
-import edu.wpi.first.wpilibj.templates.subsystems.SubsystemTwo;
 
 /**
  * The base for all commands. All atomic commands should subclass CommandBase.
