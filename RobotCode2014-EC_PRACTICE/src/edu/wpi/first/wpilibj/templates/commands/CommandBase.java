@@ -11,7 +11,6 @@ import edu.wpi.first.wpilibj.templates.subsystems.Sensor;
 import edu.wpi.first.wpilibj.templates.subsystems.Shooter;
 import edu.wpi.first.wpilibj.templates.subsystems.SubsystemOne;
 import edu.wpi.first.wpilibj.templates.subsystems.SubsystemTwo;
-import edu.wpi.first.wpilibj.templates.subsystems.ValueGetter;
 
 /**
  * The base for all commands. All atomic commands should subclass CommandBase.
@@ -32,7 +31,6 @@ public abstract class CommandBase extends Command {
     public static Camera camera = new Camera(RobotMap.CAM_PAN, RobotMap.CAM_TILT);
     public static SubsystemOne subsystem1 = new SubsystemOne(RobotMap.SUBSYSTEM1_JAG1, RobotMap.SUBSYSTEM1_JAG2, RobotMap.SUBSYSTEM1_RELAY1, RobotMap.SUBSYSTEM1_RELAY2, RobotMap.SUBSYSTEM1_SERVO1, RobotMap.SUBSYSTEM1_SERVO2);
     public static SubsystemTwo subsystem2 = new SubsystemTwo(RobotMap.SUBSYSTEM2_JAG1, RobotMap.SUBSYSTEM2_JAG2, RobotMap.SUBSYSTEM2_RELAY1, RobotMap.SUBSYSTEM2_RELAY2, RobotMap.SUBSYSTEM2_SERVO1, RobotMap.SUBSYSTEM2_SERVO2);
-    public static ValueGetter valueGetter = new ValueGetter();
     public static Sensor sensor = new Sensor(RobotMap.ACCELEROMETER_PORT, RobotMap.GYRO_PORT, RobotMap.SONAR_PORT);
 
     public static void init() {
@@ -61,7 +59,6 @@ public abstract class CommandBase extends Command {
         //camera = new Camera(RobotMap.CAM_PAN, RobotMap.CAM_TILT);
         subsystem1 = new SubsystemOne(RobotMap.SUBSYSTEM1_JAG1, RobotMap.SUBSYSTEM1_JAG2, RobotMap.SUBSYSTEM1_RELAY1, RobotMap.SUBSYSTEM1_RELAY2, RobotMap.SUBSYSTEM1_SERVO1, RobotMap.SUBSYSTEM1_SERVO2);
         subsystem2 = new SubsystemTwo(RobotMap.SUBSYSTEM2_JAG1, RobotMap.SUBSYSTEM2_JAG2, RobotMap.SUBSYSTEM2_RELAY1, RobotMap.SUBSYSTEM2_RELAY2, RobotMap.SUBSYSTEM2_SERVO1, RobotMap.SUBSYSTEM2_SERVO2);
-        valueGetter = new ValueGetter();
         sensor = new Sensor(RobotMap.ACCELEROMETER_PORT, RobotMap.GYRO_PORT, RobotMap.SONAR_PORT);
     }
 }
