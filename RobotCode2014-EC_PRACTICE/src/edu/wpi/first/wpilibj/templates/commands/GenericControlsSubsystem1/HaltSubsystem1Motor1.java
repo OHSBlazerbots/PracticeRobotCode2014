@@ -13,12 +13,12 @@ import edu.wpi.first.wpilibj.templates.commands.CommandBase;
 public class HaltSubsystem1Motor1 extends CommandBase {
     
     public HaltSubsystem1Motor1() {
-       requires(subsystem1);
+       requires(kicker);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        subsystem1.stopJag1();
+        kicker.stopJag1();
     }
 
     // Called repeatedly when this Command is scheduled to run

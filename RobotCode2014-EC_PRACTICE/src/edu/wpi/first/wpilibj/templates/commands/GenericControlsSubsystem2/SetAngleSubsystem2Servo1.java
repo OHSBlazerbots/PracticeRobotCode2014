@@ -16,13 +16,13 @@ public class SetAngleSubsystem2Servo1 extends CommandBase {
     private double angle;
    
     public SetAngleSubsystem2Servo1(double angle) {
-        requires(subsystem1);
+        requires(kicker);
         this.angle = angle;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        subsystem1.setServo2Angle(angle);
+        kicker.setServo2Angle(angle);
     }
 
     // Called repeatedly when this Command is scheduled to run

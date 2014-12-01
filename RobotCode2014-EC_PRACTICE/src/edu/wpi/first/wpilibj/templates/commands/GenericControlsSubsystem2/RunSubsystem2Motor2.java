@@ -21,7 +21,7 @@ public class RunSubsystem2Motor2 extends CommandBase {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        subsystem1.setJag2Speed(speed);
+        kicker.setJag2Speed(speed);
     }
 
     // Called repeatedly when this Command is scheduled to run

@@ -15,13 +15,13 @@ public class RunSubsystem1Motor1 extends CommandBase {
     private double speed;
     
     public RunSubsystem1Motor1(double speed) {
-        requires(subsystem1);
+        requires(kicker);
         this.speed = speed;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        subsystem1.setJag1Speed(speed);
+        kicker.setJag1Speed(speed);
     }
 
     // Called repeatedly when this Command is scheduled to run
