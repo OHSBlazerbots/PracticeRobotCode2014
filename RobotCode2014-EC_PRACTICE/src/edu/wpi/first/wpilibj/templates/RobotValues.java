@@ -20,4 +20,8 @@ public class RobotValues {
     
     public static double PAN_CONSTANT = 3;
     public static double TILT_CONSTANT = 3;
+    
+    //Auto Variables
+    public static final double AUTO_DRIVE_TIME = 2;
+    public static final double AUTO_DRIVE_SPEED = .5;
 }

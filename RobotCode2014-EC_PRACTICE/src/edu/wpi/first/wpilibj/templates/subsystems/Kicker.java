@@ -10,6 +10,7 @@ import edu.wpi.first.wpilibj.Relay.Value;
 import edu.wpi.first.wpilibj.Servo;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.templates.commands.RunKickerWithTriggers;
 
 /**
  *
@@ -18,14 +19,25 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class Kicker extends Subsystem {
     
     Jaguar kickMotor;
+    private boolean buttonOverride;
 
     public void initDefaultCommand() {
+        this.setDefaultCommand(new RunKickerWithTriggers());
     }
 
     public Kicker(int kickMotorPort) {
         if (kickMotorPort > -1) {
             this.kickMotor = new Jaguar(kickMotorPort);
         }
+        buttonOverride = false;
+    }
+    
+    public void setOverride(boolean o){
+        buttonOverride = o;
+    }
+    
+    public boolean isOverride(){
+        return this.buttonOverride;
     }
 
     /**

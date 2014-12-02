@@ -75,4 +75,10 @@ public class Chassis extends Subsystem {
             drive.arcadeDrive(move, turn);
         }
     }
+    
+    public void drive(double move, double turn){
+        if (drive != null) {
+            drive.arcadeDrive(move, turn);
+        }
+    }
 }
