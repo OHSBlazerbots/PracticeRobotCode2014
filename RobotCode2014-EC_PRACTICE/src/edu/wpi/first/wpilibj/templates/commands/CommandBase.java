@@ -6,9 +6,7 @@ import edu.wpi.first.wpilibj.templates.RobotMap;
 import edu.wpi.first.wpilibj.templates.subsystems.Camera;
 import edu.wpi.first.wpilibj.templates.subsystems.Chassis;
 import edu.wpi.first.wpilibj.templates.subsystems.Network;
-import edu.wpi.first.wpilibj.templates.subsystems.Picker;
 import edu.wpi.first.wpilibj.templates.subsystems.Sensor;
-import edu.wpi.first.wpilibj.templates.subsystems.Shooter;
 import edu.wpi.first.wpilibj.templates.subsystems.Kicker;
 
 /**

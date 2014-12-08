@@ -68,17 +68,21 @@ public class Chassis extends Subsystem {
      */
     public void driveWithJoyStick(Joystick joystick) {
         //Turn is the reverse of x
-        double turn = joystick.getX();
+        double turn = joystick.getX() * .75;
         //Drive is the y
-        double move = joystick.getY();
+        double move = joystick.getY() * .75;
         if (drive != null) {
-            drive.arcadeDrive(move, turn);
+            drive(move, turn);
         }
     }
-    
-    public void drive(double move, double turn){
+
+    public void drive(double move, double turn) {
         if (drive != null) {
-            drive.arcadeDrive(move, turn);
+            if (Math.abs(move) > .25) {
+                drive.arcadeDrive(move, turn + (.25 * Math.abs(move)));
+            } else{
+                drive.arcadeDrive(move, turn);
+            }
         }
     }
 }

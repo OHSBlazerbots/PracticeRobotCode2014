@@ -22,6 +22,6 @@ public class RobotValues {
     public static double TILT_CONSTANT = 3;
     
     //Auto Variables
-    public static final double AUTO_DRIVE_TIME = 2;
-    public static final double AUTO_DRIVE_SPEED = .5;
+    public static final double AUTO_DRIVE_TIME = 4.5;
+    public static final double AUTO_DRIVE_SPEED = -.75;
 }

@@ -21,7 +21,7 @@ public class RunKickerWithTriggers extends CommandBase {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
         if (!kicker.isOverride()) {
-            kicker.setJag1Speed(oi.getCoDriverJoystick().getZ());
+            kicker.setJag1Speed(-1*oi.getCoDriverJoystick().getZ());
         }
     }
 

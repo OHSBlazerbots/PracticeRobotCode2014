@@ -33,7 +33,7 @@ public class Camera extends Subsystem {
         pan = new Servo(pan_port);
         tilt.setAngle(90);
         pan.setAngle(90);
-        cam = AxisCamera.getInstance("10.38.7.11");
+        cam = AxisCamera.getInstance("10.38.7.13");
     }
 
     public void initDefaultCommand() {

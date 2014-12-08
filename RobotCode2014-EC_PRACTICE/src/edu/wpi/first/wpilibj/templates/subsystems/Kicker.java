@@ -50,8 +50,11 @@ public class Kicker extends Subsystem {
             if (speed < -1.0) {
                 speed = -1;
             }
-            if (speed > 1.0) {
-                speed = 1;
+            if(speed < 0){
+                speed = speed;
+            }
+            if (speed > 0) {
+                speed = speed * .25;
             }
             kickMotor.set(speed);
         }
