@@ -4,6 +4,7 @@
  */
 package edu.wpi.first.wpilibj.templates.subsystems;
 
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Jaguar;
 import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.Relay.Value;
@@ -20,15 +21,17 @@ public class Kicker extends Subsystem {
     
     Jaguar kickMotor;
     private boolean buttonOverride;
+    private DigitalInput limitSwitch;
 
     public void initDefaultCommand() {
         this.setDefaultCommand(new RunKickerWithTriggers());
     }
 
-    public Kicker(int kickMotorPort) {
+    public Kicker(int kickMotorPort, int limitSwitchPort) {
         if (kickMotorPort > -1) {
             this.kickMotor = new Jaguar(kickMotorPort);
         }
+        limitSwitch = new DigitalInput(limitSwitchPort);
         buttonOverride = false;
     }
     
@@ -80,5 +83,9 @@ public class Kicker extends Subsystem {
         } else {
             return 0.0;
         }
+    }
+    
+    public boolean isFrisbeeIn(){
+        return this.limitSwitch.get();
     }
 }

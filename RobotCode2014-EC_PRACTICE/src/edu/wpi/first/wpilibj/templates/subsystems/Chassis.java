@@ -14,6 +14,7 @@ public class Chassis extends Subsystem {
 
     //Our drive code
     public static RobotDrive drive;
+    public boolean followingFrisbee;
 
     /**
      * Create an instance of the chassis class with the appropriate motors.
@@ -33,6 +34,7 @@ public class Chassis extends Subsystem {
         } else {
             //System.out.println("FAILURE: Chassis not created due to port value as -1.");
         }
+        this.followingFrisbee = false;
     }
 
     /**
@@ -51,6 +53,7 @@ public class Chassis extends Subsystem {
         } else {
             //System.out.println("FAILURE: Chassis not created due to port value as -1.");
         }
+        this.followingFrisbee = false;
     }
 
     /**
@@ -68,21 +71,25 @@ public class Chassis extends Subsystem {
      */
     public void driveWithJoyStick(Joystick joystick) {
         //Turn is the reverse of x
-        double turn = joystick.getX() * .75;
+        double turn = joystick.getX();
         //Drive is the y
-        double move = joystick.getY() * .75;
+        double move = joystick.getY();
         if (drive != null) {
             drive(move, turn);
         }
     }
 
     public void drive(double move, double turn) {
-        if (drive != null) {
-            if (Math.abs(move) > .25) {
-                drive.arcadeDrive(move, turn + (.25 * Math.abs(move)));
-            } else{
-                drive.arcadeDrive(move, turn);
-            }
+        if (drive != null && !this.followingFrisbee) {
+            drive.arcadeDrive(move, turn);
         }
+    }
+
+    public boolean isFollowingFrisbee() {
+        return followingFrisbee;
+    }
+
+    public void setFollowingFrisbee(boolean followingFrisbee) {
+        this.followingFrisbee = followingFrisbee;
     }
 }

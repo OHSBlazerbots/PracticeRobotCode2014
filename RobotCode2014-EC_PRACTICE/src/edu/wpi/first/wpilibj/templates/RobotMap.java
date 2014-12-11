@@ -22,6 +22,9 @@ public class RobotMap {
     // Analog
     public static int ACCELEROMETER_PORT = -1;
     public static int GYRO_PORT = -1;
-    public static int SONAR_PORT = -1;   
+    public static int SONAR_PORT = -1; 
+    
+    //Digital
+    public static int SWITCH_PORT = 7;
     
 }

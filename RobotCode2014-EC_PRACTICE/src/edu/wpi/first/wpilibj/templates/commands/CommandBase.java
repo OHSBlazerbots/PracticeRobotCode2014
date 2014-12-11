@@ -26,7 +26,7 @@ public abstract class CommandBase extends Command {
     //public static Picker picker = new Picker(RobotMap.PICKER_SPIKE, RobotMap.SOLENOID_FORWARD, RobotMap.SOLENOID_BACK, RobotMap.SOLENOID2_FORWARD, RobotMap.SOLENOID2_BACK, RobotMap.COMPRESSOR_SENSOR, RobotMap.COMPRESSOR);
     //public static Shooter shooter = new Shooter(RobotMap.SHOOTER_SPIKE, RobotMap.SERVO_PORT);
     public static Camera camera = new Camera(RobotMap.CAM_PAN, RobotMap.CAM_TILT);
-    public static Kicker kicker = new Kicker(RobotMap.KICKER_MOTOR);
+    public static Kicker kicker = new Kicker(RobotMap.KICKER_MOTOR, RobotMap.SWITCH_PORT);
     public static Sensor sensor = new Sensor(RobotMap.ACCELEROMETER_PORT, RobotMap.GYRO_PORT, RobotMap.SONAR_PORT);
 
     public static void init() {
