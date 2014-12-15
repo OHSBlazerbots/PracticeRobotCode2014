@@ -13,12 +13,18 @@ import edu.wpi.first.wpilibj.command.Scheduler;
  */
 public class FollowFrisbee extends CommandBase {
 
+    double last_cog_y;
+    double last_cog_x;
+
     //Run kick command
     KickFrisbee kf = new KickFrisbee();
-    
+
     public FollowFrisbee() {
         requires(chassis);
         requires(kicker);
+        requires(network);
+        this.last_cog_x = 0;
+        this.last_cog_y = 0;
     }
 
     // Called just before this Command runs the first time
@@ -31,30 +37,41 @@ public class FollowFrisbee extends CommandBase {
     protected void execute() {
         kf.cancel();
         double x = network.getNetworkVariable("COG_X");
-
-        double turn_velocity = 0.0;
-        if (x < 290) {
-            turn_velocity = -.4;
-        } else if (x > 350) {
-            turn_velocity = .4;
-        } else if (x > 290 && x < 310) {
-            turn_velocity = -.2;
-        } else if (x < 350 && x > 330) {
-            turn_velocity = .2;
+        double y = network.getNetworkVariable("COG_Y");
+        System.out.println(x + ":" + y);
+        if (this.last_cog_y > 200 && this.last_cog_y < 230) {
+            //if (kicker.isFrisbeeIn()) {
+            //    kf.start();
+            //} else {
+                chassis.drive(.4, 0);
+            //}
         } else {
-            turn_velocity = 0;
-        }
+            this.last_cog_x = x;
+            this.last_cog_y = y;
+            double turn_velocity = 0.0;
+            if (x < 290) {
+                turn_velocity = -.4;
+            } else if (x > 350) {
+                turn_velocity = .4;
+            } else if (x > 290 && x < 310) {
+                turn_velocity = -.2;
+            } else if (x < 350 && x > 330) {
+                turn_velocity = .2;
+            } else {
+                turn_velocity = 0;
+            }
 
-        if (kicker.isFrisbeeIn()) {
-            kf.start();
-        } else {
-            chassis.drive(.4, turn_velocity);
+            //if (kicker.isFrisbeeIn()) {
+            //    kf.start();
+            //} else {
+                chassis.drive(.4, turn_velocity);
+            //}
         }
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return chassis.isFollowingFrisbee();
+        return !chassis.isFollowingFrisbee();
     }
 
     // Called once after isFinished returns true

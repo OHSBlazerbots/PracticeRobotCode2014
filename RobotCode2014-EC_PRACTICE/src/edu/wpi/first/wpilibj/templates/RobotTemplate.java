@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.templates.commands.Autonomous;
 import edu.wpi.first.wpilibj.templates.commands.CommandBase;
+import edu.wpi.first.wpilibj.templates.commands.FollowFrisbee;
 //import edu.wpi.first.wpilibj.templates.commands.ExampleCommand;
 
 /**
@@ -23,7 +24,8 @@ import edu.wpi.first.wpilibj.templates.commands.CommandBase;
 public class RobotTemplate extends IterativeRobot {
 
     Autonomous autoCommand; //The command for autonomous
-
+    FollowFrisbee ff;
+    
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
@@ -36,10 +38,13 @@ public class RobotTemplate extends IterativeRobot {
     }
 
     public void autonomousInit() {
-        // schedule the autonomous command (example)
-        autoCommand = new Autonomous();
-        //Start the command
-        autoCommand.start();
+//        // schedule the autonomous command (example)
+//        autoCommand = new Autonomous();
+//        //Start the command
+//        autoCommand.start();
+        
+        ff = new FollowFrisbee();
+        
     }
 
     /**
@@ -47,6 +52,7 @@ public class RobotTemplate extends IterativeRobot {
      */
     public void autonomousPeriodic() {
         Scheduler.getInstance().run();
+        ff.start();
     }
 
     public void teleopInit() {

@@ -70,16 +70,18 @@ public class Chassis extends Subsystem {
      * @param joystick
      */
     public void driveWithJoyStick(Joystick joystick) {
+        if(!this.isFollowingFrisbee()){
         //Turn is the reverse of x
         double turn = joystick.getX();
         //Drive is the y
         double move = joystick.getY();
         if (drive != null) {
             drive(move, turn);
-        }
+        }}
     }
 
     public void drive(double move, double turn) {
+        System.out.println("Chassis: " + move + ":" + turn);
         if (drive != null && !this.followingFrisbee) {
             drive.arcadeDrive(move, turn);
         }
