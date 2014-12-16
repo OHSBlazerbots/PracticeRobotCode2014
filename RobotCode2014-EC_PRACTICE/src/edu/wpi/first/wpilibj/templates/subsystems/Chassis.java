@@ -75,14 +75,13 @@ public class Chassis extends Subsystem {
         double turn = joystick.getX();
         //Drive is the y
         double move = joystick.getY();
-        if (drive != null) {
+        if (drive != null && !this.followingFrisbee) {
             drive(move, turn);
         }}
     }
 
     public void drive(double move, double turn) {
-        System.out.println("Chassis: " + move + ":" + turn);
-        if (drive != null && !this.followingFrisbee) {
+        if (drive != null) {
             drive.arcadeDrive(move, turn);
         }
     }
