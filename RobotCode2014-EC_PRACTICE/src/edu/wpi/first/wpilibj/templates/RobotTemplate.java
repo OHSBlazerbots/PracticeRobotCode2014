@@ -12,6 +12,7 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.templates.commands.Autonomous;
 import edu.wpi.first.wpilibj.templates.commands.CommandBase;
 import edu.wpi.first.wpilibj.templates.commands.FollowFrisbee;
+import edu.wpi.first.wpilibj.templates.commands.KickFrisbee;
 //import edu.wpi.first.wpilibj.templates.commands.ExampleCommand;
 
 /**
@@ -25,16 +26,21 @@ public class RobotTemplate extends IterativeRobot {
 
     Autonomous autoCommand; //The command for autonomous
     FollowFrisbee ff;
-    
+    KickFrisbee kf;
+
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
      */
     public void robotInit() {
+        System.out.println("0");
         // instantiate the command used for the autonomous period
-
+//                ff = new FollowFrisbee();
+//        kf= new KickFrisbee();
+        System.out.println(".5");
         // Initialize all subsystems
         CommandBase.init();
+        System.out.println("1");
     }
 
     public void autonomousInit() {
@@ -42,9 +48,11 @@ public class RobotTemplate extends IterativeRobot {
 //        autoCommand = new Autonomous();
 //        //Start the command
 //        autoCommand.start();
-        
+        System.out.println("2");
         ff = new FollowFrisbee();
+        ff.start();
         
+        System.out.println("3");
     }
 
     /**
@@ -52,7 +60,9 @@ public class RobotTemplate extends IterativeRobot {
      */
     public void autonomousPeriodic() {
         Scheduler.getInstance().run();
-        ff.start();
+        //ff.start();
+        kf = new KickFrisbee();
+        kf.start();
     }
 
     public void teleopInit() {
@@ -62,6 +72,12 @@ public class RobotTemplate extends IterativeRobot {
         // this line or comment it out.
         try {
             autoCommand.cancel();
+        } catch (NullPointerException e) {
+
+        }
+        try {
+            kf.cancel();
+            ff.cancel();
         } catch (NullPointerException e) {
 
         }
